@@ -22,5 +22,10 @@
         return $app['twig']->render('place_list.html.twig', array('newplace' => $place));
     });
 
+    $app->post('/delete_place', function() use ($app){
+        Place::deleteAll();
+        return $app['twig']->render('deleted.html.twig');
+    });
+
     return $app;
 ?>
